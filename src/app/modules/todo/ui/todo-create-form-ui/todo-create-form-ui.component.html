@@ -1,0 +1,4 @@
+<form action="#" (ngSubmit)="onCreate()">
+  <input type="text" name="nameTask" [(ngModel)]="nameTask">
+  <button [disabled]="!nameTask">Create todo Item</button>
+</form>
