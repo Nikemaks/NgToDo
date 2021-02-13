@@ -1,7 +1,14 @@
-<label>
-  <input type="checkbox" [checked]="todo.completed" (click)="onToggle($event)">
-  <span *ngIf="!todo.completed">{{ todo.name }}</span>
-  <del *ngIf="todo.completed"><span>{{ todo.name}}</span></del>
-</label>
-<button (click)="onEdit()">Edit</button>
-<button (click)="onDelete()">Delete</button>
+<div class="container">
+  <div class="row justify-content-between">
+    <label>
+      <input type="checkbox" [checked]="todo.completed" (click)="onToggle($event)">
+      <span *ngIf="!todo.completed">{{ todo.name }}</span>
+      <del *ngIf="todo.completed"><span>{{ todo.name}}</span></del>
+    </label>
+    <div class="row">
+      <button class="btn btn-secondary" (click)="onEdit()">Edit</button>
+      <button class="btn btn-danger" (click)="onDelete()">Delete</button>
+    </div>
+  </div>
+</div>
+

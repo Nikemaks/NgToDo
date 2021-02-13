@@ -1,4 +1,6 @@
-<form action="#" (ngSubmit)="onCreate()">
-  <input type="text" name="nameTask" [(ngModel)]="nameTask">
-  <button [disabled]="!nameTask">Create todo Item</button>
+<form class="form row justify-content-center" action="#" (ngSubmit)="onCreate()">
+  <div class="input-group">
+    <input class="form-control" type="text" name="nameTask" [(ngModel)]="nameTask">
+    <button class="btn btn-outline-primary mb-3" [disabled]="!nameTask">Create todo Item</button>
+  </div>
 </form>
