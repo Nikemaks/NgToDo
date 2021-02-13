@@ -1,7 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {TodoState} from "../../store/todo/todo.reducer";
-import {Store} from "@ngrx/store";
-import {TodoCreateAcion} from "../../store/todo/todo.actions";
+import {select, Store} from "@ngrx/store";
+import {TodoCreateAction, TodoDeleteAction, TodoEditAction, TodoToggleAction} from "../../store/todo/todo.actions";
+import {todoListSelector} from "../../store/todo/todo.selectors";
+import {Todo} from "../../model/todo";
+import {Observable} from "rxjs/internal/Observable";
 
 @Component({
   selector: 'app-todo-widget',
@@ -10,6 +13,9 @@ import {TodoCreateAcion} from "../../store/todo/todo.actions";
 })
 export class TodoWidgetComponent implements OnInit {
 
+  todoList = [];
+  todoList$: Observable<Todo[]> = this.store$.pipe(select(todoListSelector));
+
   constructor(private store$: Store<TodoState>) {
   }
 
@@ -17,7 +23,20 @@ export class TodoWidgetComponent implements OnInit {
   }
 
   onCreate(name: string) {
-    this.store$.dispatch(new TodoCreateAcion({name}))
+    this.store$.dispatch(new TodoCreateAction({name}))
   }
+
+  onDelete(id: number) {
+    this.store$.dispatch(new TodoDeleteAction({id}))
+  }
+
+  onToggle(id: number) {
+    this.store$.dispatch(new TodoToggleAction({id}))
+  }
+
+  onEdit({id, name}: {id: number, name: string}) {
+    this.store$.dispatch(new TodoEditAction({id, name}))
+  }
+
 
 }
