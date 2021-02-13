@@ -49,6 +49,10 @@ export const todoReducer = (state = initialState, action: TodoActions) => {
           name: action.payload.name
         } : todo)
       };
+    case todoActionsType.load:
+      return {
+        ...action.payload.state
+      };
     default:
       return state;
   }

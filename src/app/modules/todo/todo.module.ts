@@ -4,16 +4,23 @@ import {StoreModule} from "@ngrx/store";
 import {TODO_REDUSER_NODE, todoReducer} from "./store/todo/todo.reducer";
 import {TodoPageComponent} from './page/todo-page/todo-page.component';
 import {RouterModule} from "@angular/router";
-import { TodoWidgetComponent } from './widget/todo-widget/todo-widget.component';
-import { TodoCreateFormUiComponent } from './ui/todo-create-form-ui/todo-create-form-ui.component';
+import {TodoWidgetComponent} from './widget/todo-widget/todo-widget.component';
+import {TodoCreateFormUiComponent} from './ui/todo-create-form-ui/todo-create-form-ui.component';
 import {FormsModule} from "@angular/forms";
-import { TodoListUiComponent } from './ui/todo-list-ui/todo-list-ui.component';
-import { TodoListItemUiComponent } from './ui/todo-list-item-ui/todo-list-item-ui.component';
-import { TodoListItemEditComponent } from './ui/todo-list-item-edit/todo-list-item-edit.component';
+import {TodoListUiComponent} from './ui/todo-list-ui/todo-list-ui.component';
+import {TodoListItemUiComponent} from './ui/todo-list-item-ui/todo-list-item-ui.component';
+import {TodoListItemEditComponent} from './ui/todo-list-item-edit/todo-list-item-edit.component';
 
 
 @NgModule({
-  declarations: [TodoPageComponent, TodoWidgetComponent, TodoCreateFormUiComponent, TodoListUiComponent, TodoListItemUiComponent, TodoListItemEditComponent],
+  declarations: [
+    TodoPageComponent,
+    TodoWidgetComponent,
+    TodoCreateFormUiComponent,
+    TodoListUiComponent,
+    TodoListItemUiComponent,
+    TodoListItemEditComponent
+  ],
   imports: [
     CommonModule,
     FormsModule,
@@ -24,6 +31,9 @@ import { TodoListItemEditComponent } from './ui/todo-list-item-edit/todo-list-it
         component: TodoPageComponent
       }
     ])
+  ],
+  exports: [
+    TodoWidgetComponent
   ]
 })
 export class TodoModule {
